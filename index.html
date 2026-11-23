@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Trader Simulator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="intro">
+  <h2>ИГРА СДЕЛАНА В ИСКЛЮЧИТЕЛЬНО РАЗВЛЕКАТЕЛЬНЫХ ЦЕЛЯХ!<br>ОТСЮДА НЕЛЬЗЯ ВЫВЕСТИ КАКУЮ ЛИБО ВАЛЮТУ!</h2>
+  <button id="startBtn">ПРОДОЛЖИТЬ</button>
+</div>
+
+<div id="nameScreen" class="hidden">
+  <h2>ВВЕДИ СВОЙ НИК</h2>
+  <input type="text" id="nameInput" placeholder="Ник..." maxlength="15">
+  <button id="confirmNameBtn">ПОДТВЕРДИТЬ</button>
+  <div id="nameError"></div>
+</div>
+
+<div class="container hidden" id="mainGame">
+  <h1>₿ CRYPTO TRADER SIMULATOR</h1>
+
+  <div class="tabs">
+    <button class="tab active" data-tab="market">РЫНОК</button>
+    <button class="tab" data-tab="shop">ПОДАРКИ</button>
+    <button class="tab" data-tab="craft">КРАФТ</button>
+    <button class="tab" data-tab="profile">ПРОФИЛЬ</button>
+  </div>
+
+  <!-- РЫНОК -->
+  <div class="tab-content active" id="market">
+    <div class="layout">
+      <div class="left-panel">
+        <div class="coin-list" id="coinList"></div>
+      </div>
+      <div class="right-panel">
+        <div class="stats">
+          <div class="stat"><div class="label">БАЛАНС</div><div class="value" id="balance">$1000</div></div>
+          <div class="stat"><div class="label">МОНЕТ</div><div class="value" id="coins">0</div></div>
+          <div class="stat"><div class="label">ЦЕНА</div><div class="value" id="price">$0</div></div>
+        </div>
+        <canvas id="chart" width="800" height="300"></canvas>
+        <div class="controls">
+          <input type="number" id="amount" value="1" min="1" step="1">
+          <button class="buy" id="buyBtn">КУПИТЬ</button>
+          <button class="sell" id="sellBtn">ПРОДАТЬ</button>
+        </div>
+        <div class="log" id="log"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ПОДАРКИ -->
+  <div class="tab-content" id="shop">
+    <div class="gift-grid" id="giftGrid"></div>
+  </div>
+
+  <!-- КРАФТ -->
+  <div class="tab-content" id="craft">
+    <h3>КРАФТ ПОДАРКОВ</h3>
+    <div class="gift-grid" id="craftGrid"></div>
+  </div>
+
+  <!-- ПРОФИЛЬ -->
+  <div class="tab-content" id="profile">
+    <div class="profile-header">
+      <div class="avatar">🧑‍💻</div>
+      <div>
+        <div class="profile-name" id="profileName">Трейдер</div>
+        <div class="profile-balance">Баланс: <span id="profileBalance">$1000</span></div>
+      </div>
+    </div>
+    <h3>Мои подарки</h3>
+    <div class="gift-grid" id="myGifts"></div>
+  </div>
+</div>
+
+<script src="market.js"></script>
+<script src="shop.js"></script>
+<script src="profile.js"></script>
+</body>
+</html>
